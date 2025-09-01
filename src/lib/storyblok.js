@@ -6,6 +6,11 @@ import Feature from "@/components/sb/Feature";
 import Grid from "@/components/sb/Grid";
 import DoesNotExist from "@/components/sb/DoesNotExist";
 import Hero from "@/components/sb/Hero";
+
+// Shoplist page
+import ShoplistIntro from "../components/sb/shoplist/ShoplistIntro.jsx";
+import ShoplistCategoryTabs from "../components/sb/shoplist/ShoplistCategoryTabs.jsx";
+
 export const components = {
   // Add your components here
   page: Page,
@@ -14,6 +19,10 @@ export const components = {
   teaser: Teaser,
   hero: Hero,
   doesNotExist: DoesNotExist,
+
+  // Shoplist page
+  shoplistIntro: ShoplistIntro,
+  shoplistCategoryTabs: ShoplistCategoryTabs
 };
 
 
