@@ -1,4 +1,5 @@
 function ShoplistProduct({ product }) {
+
     return (
         <a className="shoplist-product" href={`/product/${product._uid}`}>
             <img src={product.image.filename} alt={product.image.title} className="mb-4 w-full aspect-square object-cover bg-white" />

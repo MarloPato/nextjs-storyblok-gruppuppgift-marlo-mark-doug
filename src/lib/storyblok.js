@@ -12,6 +12,9 @@ import ShoplistIntro from "../components/sb/shoplist/ShoplistIntro.jsx";
 import ShoplistCategoryTabs from "../components/sb/shoplist/ShoplistCategoryTabs.jsx";
 import ShoplistProductList from "../components/sb/shoplist/ShoplistProductList.jsx";
 
+// Product page
+import ProductPageTest from "../components/sb/productPage/ProductPageTest.jsx";
+
 export const components = {
   // Add your components here
   page: Page,
@@ -25,6 +28,9 @@ export const components = {
   shoplistIntro: ShoplistIntro,
   shoplistCategoryTabs: ShoplistCategoryTabs,
   shoplistProductList: ShoplistProductList,
+
+  // Product page
+  productPageTest: ProductPageTest
 };
 
 
