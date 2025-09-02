@@ -10,6 +10,7 @@ import Hero from "@/components/sb/Hero";
 // Shoplist page
 import ShoplistIntro from "../components/sb/shoplist/ShoplistIntro.jsx";
 import ShoplistCategoryTabs from "../components/sb/shoplist/ShoplistCategoryTabs.jsx";
+import ShoplistProductList from "../components/sb/shoplist/ShoplistProductList.jsx";
 
 export const components = {
   // Add your components here
@@ -22,7 +23,8 @@ export const components = {
 
   // Shoplist page
   shoplistIntro: ShoplistIntro,
-  shoplistCategoryTabs: ShoplistCategoryTabs
+  shoplistCategoryTabs: ShoplistCategoryTabs,
+  shoplistProductList: ShoplistProductList,
 };
 
 
