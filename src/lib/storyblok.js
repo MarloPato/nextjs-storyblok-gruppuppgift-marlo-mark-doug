@@ -6,6 +6,7 @@ import Feature from "@/components/sb/Feature";
 import Grid from "@/components/sb/Grid";
 import DoesNotExist from "@/components/sb/DoesNotExist";
 import Hero from "@/components/sb/Hero";
+import Button from "@/components/sb/Button.js";
 
 // Shoplist page
 import ShoplistIntro from "../components/sb/shoplist/ShoplistIntro.jsx";
@@ -25,6 +26,7 @@ export const components = {
   hero: Hero,
   doesNotExist: DoesNotExist,
   paragraph: Paragraph,
+  button: Button,
 
   // Shoplist page
   shoplistIntro: ShoplistIntro,
