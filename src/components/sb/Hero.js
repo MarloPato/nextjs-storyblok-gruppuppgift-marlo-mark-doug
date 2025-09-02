@@ -18,7 +18,8 @@ export default function Hero({ blok }) {
       <h1 className="text-5xl text-center font-bold text-black">
         {blok.title}
       </h1>
-      <h4 className="w-[80%] text-center">{blok.description}</h4>
+      <h3 className="text-secondary">{blok.subtitle}</h3>
+      <h4 className="w-[80%] text-center text-foreground">{blok.content}</h4>
     </div>
   );
 }
