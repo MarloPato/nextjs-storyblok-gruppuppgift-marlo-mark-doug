@@ -7,6 +7,8 @@ import Grid from "@/components/sb/Grid";
 import DoesNotExist from "@/components/sb/DoesNotExist";
 import Hero from "@/components/sb/Hero";
 import Button from "@/components/sb/Button.js";
+import Image from "@/components/sb/Image.js";
+import ImageBanner from "@/components/sb/ImageBanner.js";
 
 // Shoplist page
 import ShoplistIntro from "../components/sb/shoplist/ShoplistIntro.jsx";
@@ -27,6 +29,8 @@ export const components = {
   doesNotExist: DoesNotExist,
   paragraph: Paragraph,
   button: Button,
+  image: Image,
+  image_banner: ImageBanner,
 
   // Shoplist page
   shoplistIntro: ShoplistIntro,
