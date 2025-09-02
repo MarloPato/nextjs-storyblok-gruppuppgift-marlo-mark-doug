@@ -14,6 +14,7 @@ import ShoplistProductList from "../components/sb/shoplist/ShoplistProductList.j
 
 // Product page
 import ProductPageTest from "../components/sb/productPage/ProductPageTest.jsx";
+import Paragraph from "@/components/sb/Paragraph.js";
 
 export const components = {
   // Add your components here
@@ -23,6 +24,7 @@ export const components = {
   teaser: Teaser,
   hero: Hero,
   doesNotExist: DoesNotExist,
+  paragraph: Paragraph,
 
   // Shoplist page
   shoplistIntro: ShoplistIntro,
@@ -30,9 +32,8 @@ export const components = {
   shoplistProductList: ShoplistProductList,
 
   // Product page
-  productPageTest: ProductPageTest
+  productPageTest: ProductPageTest,
 };
-
 
 /**
  * Get the Storyblok API exports a StoryblokApi object to be used in the application
@@ -47,4 +48,4 @@ export const getStoryblokApi = storyblokInit({
     region: "eu",
   },
   components,
-})
+});

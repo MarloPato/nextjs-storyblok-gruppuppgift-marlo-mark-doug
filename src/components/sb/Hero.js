@@ -4,26 +4,27 @@ export default function Hero({ blok }) {
   console.log(blok.background_image);
   console.log("HERO", blok);
 
-  let heroClasses = `min-h-screen bg-gray-100/90 flex flex-col justify-center items-center gap-10 `;
-
-  console.log(blok.background_image?.filename);
-
   return (
-    <div {...storyblokEditable(blok)} className={heroClasses}>
-      <div className="flex flex-col items-center gap-8 mt-12 w-[75%]">
+    <div
+      {...storyblokEditable(blok)}
+      className="flex flex-col justify-center items-center gap-10 mt-20"
+    >
+      <div className="flex flex-col items-center gap-8 mt-12 mb-12 w-[75%]">
         <h1 className="text-6xl text-center font-normal text-black">
           {blok.title}
         </h1>
-        <h3 className="text-gray-500/80 text-[28px] text-center w-[70%]">
-          {blok.subtitle}
-        </h3>
-        {blok.content ? (
+        {blok.subtitle ?? (
+          <h3 className="text-gray-500/80 text-[28px] text-center w-[70%]">
+            {blok.subtitle}
+          </h3>
+        )}
+        {/* {blok.content ? (
           <h4 className="w-[80%] text-center text-foreground">
             {blok.content}
           </h4>
         ) : (
           ""
-        )}
+        )} */}
         {blok.cta_text && blok.cta_link && (
           <div className="text-center mt-6">
             <a
