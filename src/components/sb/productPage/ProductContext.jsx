@@ -1,11 +1,11 @@
 "use client"
 import { createContext, useContext, useState } from "react";
 
-const productContext = createContext({
+const ProductContext = createContext({
     product: null
 })
 
-export const useProductContext = () => useContext(productContext);
+export const useProductContext = () => useContext(ProductContext);
 
 export const ProductProvider = ({ product, children }) => {
 
@@ -13,5 +13,5 @@ export const ProductProvider = ({ product, children }) => {
         product
     }
 
-    return <productContext.Provider value={ctx}>{children}</productContext.Provider>
+    return <ProductContext.Provider value={ctx}>{children}</ProductContext.Provider>
 }
