@@ -11,6 +11,10 @@ import Image from "@/components/sb/Image.js";
 import ImageBanner from "@/components/sb/ImageBanner.js";
 import Hero3 from "@/components/sb/Hero3.js";
 
+// Header and Footer components
+import Header from "@/components/sb/Header.js";
+import Footer from "@/components/sb/footer/Footer.js";
+
 // Shoplist page
 import ShoplistIntro from "../components/sb/shoplist/ShoplistIntro.jsx";
 import ShoplistCategoryTabs from "../components/sb/shoplist/ShoplistCategoryTabs.jsx";
@@ -34,12 +38,18 @@ export const components = {
   image_banner: ImageBanner,
   hero3: Hero3,
 
+  // Header and Footer
+  header: Header,
+  footer: Footer,
+  // footer_column: FooterColumn,
+
   // Shoplist page
   shoplistIntro: ShoplistIntro,
   shoplistCategoryTabs: ShoplistCategoryTabs,
   shoplistProductList: ShoplistProductList,
 
   // Product page
+  productPageTest: ProductPageTest,
   productPageTest: ProductPageTest,
 };
 
@@ -56,4 +66,41 @@ export const getStoryblokApi = storyblokInit({
     region: "eu",
   },
   components,
+});
+
+/**
+ * Fetch the configuration story from Storyblok
+ * This should contain menu_links, footer_text, and footer_links
+ */
+export async function fetchConfig() {
+  try {
+    const storyblokApi = getStoryblokApi();
+
+    const { data } = await storyblokApi.get("cdn/stories/config", {
+      version: "draft", // temporarily using draft to test
+    });
+
+    return data.story.content;
+  } catch (error) {
+    console.error("Error fetching config:", error);
+
+    // Return fallback data if config story doesn't exist yet
+    if (error.status === 404) {
+      console.log("Config story not found - using fallback data");
+      return {
+        menu_links: [
+          { label: "Home", link: { cached_url: "/" } },
+          { label: "About", link: { cached_url: "/about" } },
+        ],
+        footer_text: "© 2024 Your Company. All rights reserved.",
+        footer_links: [
+          { label: "Privacy Policy", link: { cached_url: "/privacy" } },
+          { label: "Terms of Service", link: { cached_url: "/terms" } },
+        ],
+      };
+    }
+
+    return null;
+  }
+}
 });
