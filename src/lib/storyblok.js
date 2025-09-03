@@ -8,8 +8,8 @@ import DoesNotExist from "@/components/sb/DoesNotExist";
 import Hero from "@/components/sb/Hero";
 
 // Header and Footer components
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/sb/Header.js";
+import Footer from "@/components/sb/footer/Footer.js";
 
 // Shoplist page
 import ShoplistIntro from "../components/sb/shoplist/ShoplistIntro.jsx";
@@ -31,6 +31,7 @@ export const components = {
   // Header and Footer
   header: Header,
   footer: Footer,
+  // footer_column: FooterColumn,
 
   // Shoplist page
   shoplistIntro: ShoplistIntro,
