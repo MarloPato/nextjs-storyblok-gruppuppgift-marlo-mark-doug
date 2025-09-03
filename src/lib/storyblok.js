@@ -7,6 +7,10 @@ import Grid from "@/components/sb/Grid";
 import DoesNotExist from "@/components/sb/DoesNotExist";
 import Hero from "@/components/sb/Hero";
 
+// Header and Footer components
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
 // Shoplist page
 import ShoplistIntro from "../components/sb/shoplist/ShoplistIntro.jsx";
 import ShoplistCategoryTabs from "../components/sb/shoplist/ShoplistCategoryTabs.jsx";
@@ -23,6 +27,10 @@ export const components = {
   teaser: Teaser,
   hero: Hero,
   doesNotExist: DoesNotExist,
+
+  // Header and Footer
+  header: Header,
+  footer: Footer,
 
   // Shoplist page
   shoplistIntro: ShoplistIntro,

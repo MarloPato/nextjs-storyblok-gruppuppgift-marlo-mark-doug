@@ -10,7 +10,7 @@ export default async function Page({ params }) {
     const { slug } = await params;
     const data = await fetchData(slug);
     //TODO: Replace with StoryblokStory component and add a fallback component
-    if(data?.data?.story?.content?.component === "config"){
+    if (data?.data?.story?.content?.component === "config") {
       throw new Error("CONFIG_ERROR");
     }
     return (
