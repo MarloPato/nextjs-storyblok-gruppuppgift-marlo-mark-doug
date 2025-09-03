@@ -9,6 +9,7 @@ import Hero from "@/components/sb/Hero";
 import Button from "@/components/sb/Button.js";
 import Image from "@/components/sb/Image.js";
 import ImageBanner from "@/components/sb/ImageBanner.js";
+import Hero3 from "@/components/sb/Hero3.js";
 
 // Shoplist page
 import ShoplistIntro from "../components/sb/shoplist/ShoplistIntro.jsx";
@@ -31,6 +32,7 @@ export const components = {
   button: Button,
   image: Image,
   image_banner: ImageBanner,
+  hero3: Hero3,
 
   // Shoplist page
   shoplistIntro: ShoplistIntro,
