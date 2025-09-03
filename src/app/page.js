@@ -1,5 +1,5 @@
 import { getStoryblokApi } from "@/lib/storyblok";
-import { StoryblokStory } from '@storyblok/react/rsc';
+import { StoryblokStory } from "@storyblok/react/rsc";
 
 /**
  * Home page - renders the Storyblok story through which all components are rendered

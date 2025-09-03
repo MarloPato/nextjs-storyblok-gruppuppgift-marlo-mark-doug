@@ -1,18 +1,23 @@
 import { storyblokEditable } from "@storyblok/react";
 
 export default function Hero3({ blok }) {
-  console.log("the picture is", blok.images);
-
   return (
     <div
       {...storyblokEditable(blok)}
-      className="relative w-[20rem] border border-black/90"
+      className="relative w-full flex flex-col mb-20"
     >
-      <h1>{blok.title}</h1>
-      <img className="w-full" src={blok.images?.filename} />
-      {/* {blok.images.map((img) => (
-        <img className="w-full" src={img?.filename} />
-      ))} */}
+      <div className="h-[60vh] flex gap-12 justify-center">
+        {blok.multi_images?.map((img, idx) => (
+          <img
+            key={img.id}
+            className={
+              "w-[20rem] " + (idx % 2 === 1 ? "self-start" : "self-end")
+            }
+            src={img.filename}
+            alt={img.alt || ""}
+          />
+        ))}
+      </div>
     </div>
   );
 }

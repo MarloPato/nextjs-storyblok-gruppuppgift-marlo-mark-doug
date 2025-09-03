@@ -2,8 +2,7 @@ import { storyblokEditable } from "@storyblok/react";
 
 export default function Hero({ blok }) {
   let heroClasses = `min-h-screen bg-gray-100/90 flex flex-col justify-center items-center gap-10 `;
-  console.log(blok.background_image);
-  console.log("HERO", blok);
+  console.log("LINK?", blok.cta_link.cached_url);
 
   return (
     <div
@@ -29,7 +28,7 @@ export default function Hero({ blok }) {
         {blok.cta_text && blok.cta_link && (
           <div className="text-center mt-6">
             <a
-              href={blok.cta_link}
+              href={blok.cta_link?.cached_url}
               className="border border-black px-4 py-3 text-secondary inline-block w-[194px] h-[50px] text-center hover:bg-gray-600 hover:text-white duration-100"
             >
               {blok.cta_text}
