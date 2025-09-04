@@ -10,6 +10,7 @@ import Button from "@/components/sb/Button.js";
 import Image from "@/components/sb/Image.js";
 import ImageBanner from "@/components/sb/ImageBanner.js";
 import Hero3 from "@/components/sb/Hero3.js";
+import Paragraph from "@/components/sb/Paragraph.js";
 
 // Header and Footer components
 import Header from "@/components/sb/Header.js";
@@ -22,7 +23,7 @@ import ShoplistProductList from "../components/sb/shoplist/ShoplistProductList.j
 
 // Product page
 import ProductPageTest from "../components/sb/productPage/ProductPageTest.jsx";
-import Paragraph from "@/components/sb/Paragraph.js";
+import ProductPageContainer from "../components/sb/productPage/ProductPageContainer.jsx"
 
 export const components = {
   // Add your components here
@@ -50,7 +51,7 @@ export const components = {
 
   // Product page
   productPageTest: ProductPageTest,
-  productPageTest: ProductPageTest,
+  productPageContainer: ProductPageContainer,
 };
 
 /**

@@ -4,6 +4,7 @@ import StoryBlokProvider from "@/components/StoryBlokProvider";
 import Header from "@/components/sb/Header";
 import Footer from "@/components/sb/footer/Footer";
 import { fetchConfig } from "@/lib/storyblok";
+import { CartProvider } from "../components/CartContext.jsx";
 
 // Shoplist
 import { ShoplistContextProvider } from "../components/sb/shoplist/ShoplistContext.jsx";
@@ -28,17 +29,19 @@ export default async function RootLayout({ children }) {
 
   return (
     <StoryBlokProvider>
-      <ShoplistContextProvider>
-        <html lang="en">
-          <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-          >
-            <Header {...(config || {})} />
-            {children}
-            <Footer {...(config || {})} />
-          </body>
-        </html>
-      </ShoplistContextProvider>
+      <CartProvider>
+        <ShoplistContextProvider>
+          <html lang="en">
+            <body
+              className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+            >
+              <Header {...(config || {})} />
+              {children}
+              <Footer {...(config || {})} />
+            </body>
+          </html>
+        </ShoplistContextProvider>
+      </CartProvider>
     </StoryBlokProvider>
   );
 }

@@ -14,8 +14,8 @@ export default function ShoplistCategoryTabs({ blok }) {
       {...storyblokEditable(blok)}
     >
         {categories.map((category) => {
-          let classList = "category-tab border-1 border-white px-7 py-3 hover:bg-gray-700 cursor-pointer"
-          if (category === selectedCategory) classList += " bg-white text-black hover:bg-white"
+          let classList = "category-tab border-1 border-gray-800 px-7 py-3 hover:bg-gray-700 cursor-pointer"
+          if (category === selectedCategory) classList += " bg-gray-400 text-black hover:bg-white"
             return (
                 <button key={category} className={classList} onClick={() => setSelectedCategory(category)}>
                     {category}
