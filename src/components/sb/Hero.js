@@ -29,7 +29,7 @@ export default function Hero({ blok }) {
           <div className="text-center mt-6">
             <a
               href={blok.cta_link?.cached_url}
-              className="border border-black px-4 py-3 text-secondary inline-block w-[194px] h-[50px] text-center hover:bg-gray-600 hover:text-white duration-100"
+              className="border border-black px-4 py-3 text-secondary inline-block w-[194px] h-[50px] text-center hover:bg-gray-500/80 hover:text-white duration-100"
             >
               {blok.cta_text}
             </a>

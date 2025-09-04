@@ -28,7 +28,7 @@ export default function Footer({ blok }) {
   return (
     <footer
       {...storyblokEditable(blok)}
-      className="bg-gray-100 py-12 mt-24 w-full flex justify-center items-center"
+      className="bg-gray-100 pt-12 mt-24 w-full flex justify-center items-center"
     >
       <div className="w-full flex max-md:flex-col justify-around mx-auto px-4 sm:px-6 lg:px-8">
         {/* Newsletter Signup Column */}
@@ -49,7 +49,7 @@ export default function Footer({ blok }) {
               placeholder="Email Address"
               className="flex-1 px-4 py-3 border border-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
-            <button className="text-black px-6 py-2 font-bold rounded-md hover: transition-colors absolute right-0 top-1.5">
+            <button className="text-black px-6 py-2 font-bold hover:transition-colors absolute right-1 top-1.5">
               {blok.cta_text || "Sign Up"}
             </button>
           </div>
