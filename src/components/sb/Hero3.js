@@ -6,17 +6,20 @@ export default function Hero3({ blok }) {
       {...storyblokEditable(blok)}
       className="relative w-full flex flex-col mb-20"
     >
-      <div className="h-[60vh] flex gap-12 justify-center">
-        {blok.multi_images?.map((img, idx) => (
-          <img
-            key={img.id}
-            className={
-              "w-[20rem] " + (idx % 2 === 1 ? "self-start" : "self-end")
-            }
-            src={img.filename}
-            alt={img.alt || ""}
-          />
-        ))}
+      <div className="relative">
+        <div className="md:h-[60vh] flex gap-12 justify-center max-md:flex-col">
+          {blok.multi_images?.map((img, idx) => (
+            <img
+              key={img.id}
+              className={
+                "w-[20rem h-[80%] " +
+                (idx % 2 === 1 ? "md:self-start" : "md:self-end")
+              }
+              src={img.filename}
+              alt={img.alt || ""}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
