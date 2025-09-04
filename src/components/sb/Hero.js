@@ -13,11 +13,11 @@ export default function Hero({ blok }) {
         <h1 className="text-6xl text-center font-normal text-black">
           {blok.title}
         </h1>
-        {blok.subtitle ?? (
-          <h3 className="text-gray-500/80 text-[28px] text-center w-[70%]">
-            {blok.subtitle}
-          </h3>
-        )}
+
+        <h3 className="text-gray-400 text-xl text-center w-[50%]">
+          {blok.subtitle}
+        </h3>
+
         {/* {blok.content ? (
           <h4 className="w-[80%] text-center text-foreground">
             {blok.content}

@@ -9,7 +9,7 @@ export default async function ShoplistPage({ params }) {
 
   return (
     <ProductProvider product={product}>
-      <div className="page shoplist-page w-[1200px] mx-auto max-w-[100%] pb-25">
+      <div className="page shoplist-page w-[1200px] mx-auto max-w-[100%]">
         <StoryblokStory story={data.story} context={{ _uid }} />
       </div>
     </ProductProvider>
