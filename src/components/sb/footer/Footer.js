@@ -28,7 +28,7 @@ export default function Footer({ blok }) {
   return (
     <footer
       {...storyblokEditable(blok)}
-      className="bg-gray-100 pt-12 mt-24 w-full flex justify-center items-center"
+      className="bg-gray-100 py-12 mt-24 w-full flex justify-center items-center"
     >
       <div className="w-full flex max-md:flex-col justify-around mx-auto px-4 sm:px-6 lg:px-8">
         {/* Newsletter Signup Column */}
