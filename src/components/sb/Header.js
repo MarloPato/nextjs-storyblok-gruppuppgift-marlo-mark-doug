@@ -1,5 +1,5 @@
 import Link from "next/link.js";
-import CartIcon from "./CartIcon.js"
+import CartIcon from "./CartIcon.js";
 
 function Header(props) {
   const menuLinks = props.menuLinks || [
