@@ -6,6 +6,11 @@ import Feature from "@/components/sb/Feature";
 import Grid from "@/components/sb/Grid";
 import DoesNotExist from "@/components/sb/DoesNotExist";
 import Hero from "@/components/sb/Hero";
+import Button from "@/components/sb/Button.js";
+import Image from "@/components/sb/Image.js";
+import ImageBanner from "@/components/sb/ImageBanner.js";
+import Hero3 from "@/components/sb/Hero3.js";
+import Paragraph from "@/components/sb/Paragraph.js";
 
 // Header and Footer components
 import Header from "@/components/sb/Header.js";
@@ -18,6 +23,7 @@ import ShoplistProductList from "../components/sb/shoplist/ShoplistProductList.j
 
 // Product page
 import ProductPageTest from "../components/sb/productPage/ProductPageTest.jsx";
+import ProductPageContainer from "../components/sb/productPage/ProductPageContainer.jsx"
 
 export const components = {
   // Add your components here
@@ -27,6 +33,11 @@ export const components = {
   teaser: Teaser,
   hero: Hero,
   doesNotExist: DoesNotExist,
+  paragraph: Paragraph,
+  button: Button,
+  image: Image,
+  image_banner: ImageBanner,
+  hero3: Hero3,
 
   // Header and Footer
   header: Header,
@@ -40,6 +51,7 @@ export const components = {
 
   // Product page
   productPageTest: ProductPageTest,
+  productPageContainer: ProductPageContainer,
 };
 
 /**

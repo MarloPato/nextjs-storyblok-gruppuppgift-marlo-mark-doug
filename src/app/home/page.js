@@ -5,7 +5,7 @@ import { StoryblokStory } from "@storyblok/react/rsc";
 export default async function Home() {
   const { data } = await fetchData();
   return (
-    <div className="page">
+    <div className="page flex-flex-col items-center">
       <StoryblokStory story={data.story} />
     </div>
   );

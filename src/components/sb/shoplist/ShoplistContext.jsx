@@ -1,21 +1,22 @@
-"use client"
+"use client";
 import { useState, createContext, useContext } from "react";
 
 const shoplistContext = createContext({
-    selectedCategory: "All",
-    setSelectedCategory() {}
-})
+  selectedCategory: "All",
+  setSelectedCategory() {},
+});
 
 export const useShoplistContext = () => useContext(shoplistContext);
 
 export const ShoplistContextProvider = ({ children }) => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
-    const [selectedCategory, setSelectedCategory] = useState("All")
+  const ctx = {
+    selectedCategory,
+    setSelectedCategory,
+  };
 
-    const ctx = {
-        selectedCategory,
-        setSelectedCategory
-    }
-
-    return <shoplistContext.Provider value={ctx}>{children}</shoplistContext.Provider>
-}
+  return (
+    <shoplistContext.Provider value={ctx}>{children}</shoplistContext.Provider>
+  );
+};
