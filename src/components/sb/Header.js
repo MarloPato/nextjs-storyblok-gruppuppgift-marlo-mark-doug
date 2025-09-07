@@ -1,17 +1,29 @@
 import Link from "next/link.js";
-import CartIcon from "./CartIcon.js"
+import CartIcon from "./CartIcon.js";
 
 function Header(props) {
   const menuLinks = props.menuLinks || [
     { label: "Products", link: { cached_url: "/shoplist" } },
     { label: "About", link: { cached_url: "/about" } },
   ];
+
+  // Ensure menuLinks have the correct structure
+  const safeMenuLinks = menuLinks.map((item) => ({
+    label: item.label || "Link",
+    link: item.link || { cached_url: "#" },
+  }));
   const currency = props.currency || "USD";
   const promoMessage =
     props.promoMessage || "FREE SHIPPING ON ALL HERMAN MILLER! FEB. 25-28";
   const supportLink = props.supportLink || {
     label: "Support",
     link: { cached_url: "/support" },
+  };
+
+  // Ensure supportLink has the correct structure
+  const safeSupportLink = {
+    label: supportLink.label || "Support",
+    link: supportLink.link || { cached_url: "/support" },
   };
   const cartCount = props.cartCount || 3;
   const logoText = props.logoText || "Ecommerce";
@@ -35,10 +47,10 @@ function Header(props) {
             {/* Support link */}
             <div className="flex items-center">
               <Link
-                href={supportLink.link.cached_url}
+                href={safeSupportLink.link.cached_url}
                 className="hover:text-gray-300 transition-colors"
               >
-                {supportLink.label}
+                {safeSupportLink.label}
               </Link>
             </div>
           </div>
@@ -60,7 +72,7 @@ function Header(props) {
 
               {/* Navigation Links */}
               <nav className="hidden md:flex space-x-6">
-                {menuLinks.map((item, i) => (
+                {safeMenuLinks.map((item, i) => (
                   <Link
                     key={i}
                     href={item.link.cached_url}

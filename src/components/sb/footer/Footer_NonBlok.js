@@ -1,46 +1,50 @@
-import { storyblokEditable } from "@storyblok/react";
 
-export default function Footer({ blok }) {
-  // if (!blok) {
-    return null;
-  // }
+import { getStoryblokApi } from "@storyblok/react";
 
-  // Just find the needed blocks - no complex functions
-  let shopLinks = [];
-  let helpLinks = [];
-  let aboutLinks = [];
+async function getFooter() {
+  const api = getStoryblokApi()
+  const data = await api.get('cdn/stories', {
+    version: 'draft'
+  })
+  const footerData = data.data.stories.find(story => story.name === "Footer")
+  const { newsLetterTitle, cta_text, newsletterDescription, footer_links_block } = footerData.content.Content[0]
+    return {
+        newsLetterTitle,
+        newsletterDescription,
+        cta_text,
+        shopLinks: footer_links_block.find(lb => lb.component === 'shop_links').shop_links,
+        helpLinks: footer_links_block.find(lb => lb.component === 'help_link').help_links,
+        aboutLinks: footer_links_block.find(lb => lb.component === 'about_link').about_links
+    }
+}
 
-  // If there is footer_links_block, search for the needed blocks inside it
-  if (blok.footer_links_block && Array.isArray(blok.footer_links_block)) {
-    blok.footer_links_block.forEach((block) => {
-      if (block.component === "shop_links" && block.shop_links) {
-        shopLinks = block.shop_links;
-      }
-      if (block.component === "help_link" && block.help_links) {
-        helpLinks = block.help_links;
-      }
-      if (block.component === "about_link" && block.about_links) {
-        aboutLinks = block.about_links;
-      }
-    });
-  }
+export default async function Footer_NonBlok({ blok }) {
+
+    const {
+        newsLetterTitle,
+        newsletterDescription,
+        cta_text,
+        shopLinks,
+        helpLinks,
+        aboutLinks
+    } = await getFooter()
+
 
   return (
     <footer
-      {...storyblokEditable(blok)}
       className="bg-gray-100 py-12 mt-24 w-full flex justify-center items-center"
     >
       <div className="w-full flex max-md:flex-col justify-around mx-auto px-4 sm:px-6 lg:px-8">
         {/* Newsletter Signup Column */}
         <div className="lg:col-span-1">
-          {blok.newsLetterTitle && (
+          {newsLetterTitle && (
             <h3 className="text-4xl font-medium text-gray-900 mb-4">
-              {blok.newsLetterTitle}
+              {newsLetterTitle}
             </h3>
           )}
-          {blok.newsletterDescription && (
+          {newsletterDescription && (
             <p className="text-gray-600 mb-6 w-[80%]">
-              {blok.newsletterDescription}
+              {newsletterDescription}
             </p>
           )}
           <div className="flex flex-col sm:flex-row gap-2 relative">
@@ -50,7 +54,7 @@ export default function Footer({ blok }) {
               className="flex-1 px-4 py-3 border border-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
             <button className="text-black px-6 py-2 font-bold hover:transition-colors absolute right-1 top-1.5">
-              {blok.cta_text || "Sign Up"}
+              {cta_text || "Sign Up"}
             </button>
           </div>
         </div>
