@@ -4,7 +4,7 @@ import { getStoryblokApi } from "@storyblok/react";
 async function getFooter() {
   const api = getStoryblokApi()
   const data = await api.get('cdn/stories', {
-    version: 'draft'
+    version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION || 'published'
   })
   const footerData = data.data.stories.find(story => story.name === "Footer")
   const { newsLetterTitle, cta_text, newsletterDescription, footer_links_block } = footerData.content.Content[0]
