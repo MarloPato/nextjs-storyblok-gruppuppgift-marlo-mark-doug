@@ -15,6 +15,6 @@ export default async function About() {
 export async function fetchData() {
   const storyblokApi = getStoryblokApi();
   return await storyblokApi.get("cdn/stories/about", {
-    version: "published",
+    version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION || "published",
   });
 }

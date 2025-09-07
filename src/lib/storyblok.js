@@ -78,7 +78,7 @@ export async function fetchConfig() {
     const storyblokApi = getStoryblokApi();
 
     const { data } = await storyblokApi.get("cdn/stories/config", {
-      version: "published",
+      version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION || "published",
     });
 
     return data.story.content;

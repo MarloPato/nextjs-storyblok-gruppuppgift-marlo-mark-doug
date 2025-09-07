@@ -15,6 +15,6 @@ export default async function ShoplistPage() {
 export async function fetchData() {
   const storyblokApi = getStoryblokApi();
   return await storyblokApi.get("cdn/stories/shoplist", {
-    version: "published",
+    version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION || "published",
   });
 }

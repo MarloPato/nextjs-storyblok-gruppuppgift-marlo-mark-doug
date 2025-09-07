@@ -28,6 +28,6 @@ export default async function Page({ params }) {
 export async function fetchData(slug) {
   const storyblokApi = getStoryblokApi();
   return await storyblokApi.get(`cdn/stories/${slug.join("/")}`, {
-    version: "published",
+    version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION || "published",
   });
 }

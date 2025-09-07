@@ -44,3 +44,6 @@ certificates
 
 # doug
 pnpm-lock.yaml
+
+#mark
+yarn.lock
