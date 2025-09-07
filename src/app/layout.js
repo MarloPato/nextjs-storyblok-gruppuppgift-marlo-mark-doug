@@ -9,6 +9,8 @@ import { CartProvider } from "../components/CartContext.jsx";
 // Shoplist
 import { ShoplistContextProvider } from "../components/sb/shoplist/ShoplistContext.jsx";
 
+export const dynamic = "force-dynamic";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

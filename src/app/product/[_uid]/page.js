@@ -2,6 +2,8 @@ import { getStoryblokApi } from "@/lib/storyblok";
 import { StoryblokStory } from "@storyblok/react/rsc";
 import { ProductProvider } from "../../../components/sb/productPage/ProductContext.jsx";
 
+export const dynamic = "force-dynamic";
+
 export default async function ShoplistPage({ params }) {
   const { _uid } = await params;
   const { data } = await fetchData();
@@ -19,14 +21,14 @@ export default async function ShoplistPage({ params }) {
 export async function fetchData() {
   const storyblokApi = getStoryblokApi();
   return await storyblokApi.get("cdn/stories/product", {
-    version: "draft",
+    version: "published",
   });
 }
 
 export async function fetchProduct(_uid) {
   const storyblokApi = getStoryblokApi();
   const story = await storyblokApi.get("cdn/stories/shoplist", {
-    version: "draft",
+    version: "published",
   });
 
   const blocks = story?.data?.story?.content?.body;

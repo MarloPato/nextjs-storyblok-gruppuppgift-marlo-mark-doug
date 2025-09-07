@@ -23,7 +23,7 @@ import ShoplistProductList from "../components/sb/shoplist/ShoplistProductList.j
 
 // Product page
 import ProductPageTest from "../components/sb/productPage/ProductPageTest.jsx";
-import ProductPageContainer from "../components/sb/productPage/ProductPageContainer.jsx"
+import ProductPageContainer from "../components/sb/productPage/ProductPageContainer.jsx";
 
 export const components = {
   // Add your components here
@@ -78,7 +78,7 @@ export async function fetchConfig() {
     const storyblokApi = getStoryblokApi();
 
     const { data } = await storyblokApi.get("cdn/stories/config", {
-      version: "draft", // temporarily using draft to test
+      version: "published",
     });
 
     return data.story.content;

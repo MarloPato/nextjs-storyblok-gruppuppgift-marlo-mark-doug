@@ -1,6 +1,8 @@
 import { getStoryblokApi } from "@/lib/storyblok";
 import { StoryblokStory } from "@storyblok/react/rsc";
 
+export const dynamic = "force-dynamic";
+
 /**
  * Home page - renders the Storyblok story through which all components are rendered
  * @returns {Promise<{story: StoryblokStory}>}
@@ -21,6 +23,6 @@ export default async function Home() {
 export async function fetchData() {
   const storyblokApi = getStoryblokApi();
   return await storyblokApi.get("cdn/stories/home", {
-    version: "draft",
+    version: "published",
   });
 }
