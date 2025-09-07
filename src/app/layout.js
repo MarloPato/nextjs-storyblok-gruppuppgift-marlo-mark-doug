@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StoryBlokProvider from "@/components/StoryBlokProvider";
 import Header from "@/components/sb/Header";
-import Footer from "@/components/sb/footer/Footer";
+import Footer from "@/components/sb/footer/Footer_NonBlok.js";
 import { fetchConfig } from "@/lib/storyblok";
 import { CartProvider } from "../components/CartContext.jsx";
 
@@ -25,7 +25,7 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const config = await fetchConfig();
+  // const config = await fetchConfig();
 
   return (
     <StoryBlokProvider>
@@ -35,9 +35,9 @@ export default async function RootLayout({ children }) {
             <body
               className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
-              <Header {...(config || {})} />
+              <Header />
               {children}
-              <Footer {...(config || {})} />
+              <Footer />
             </body>
           </html>
         </ShoplistContextProvider>
