@@ -4,6 +4,8 @@
 import { getStoryblokApi } from "@/lib/storyblok";
 import { notFound } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 export default async function Page({ params }) {
   try {
     //Array of slug parts ex ['blog', 'post-title']
@@ -26,6 +28,6 @@ export default async function Page({ params }) {
 export async function fetchData(slug) {
   const storyblokApi = getStoryblokApi();
   return await storyblokApi.get(`cdn/stories/${slug.join("/")}`, {
-    version: "draft",
+    version: "published",
   });
 }
