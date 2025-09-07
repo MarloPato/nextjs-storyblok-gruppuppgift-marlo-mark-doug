@@ -39,25 +39,28 @@ function ProductPageContainer() {
 
                             <p className="desc mb-8">{description}</p>
                             {/* Colors */}
-                            <div>
-                                <p className="text-gray-600 mb-2">Color</p>
-                                <div className="colors mb-8 flex gap-2">
-                                    {colors.map((color, i) => {
-                                        return (
-                                            <button 
-                                                key={color} 
-                                                className="w-12 h-12 rounded-4xl hover:outline-blue-800 hover:outline-3" 
-                                                style={{
-                                                    backgroundColor: color,
-                                                    border: `1px solid ${color}`,
-                                                    outline: selectedColor == i ? "4px solid gray" : ""
-                                                }} 
-                                                onClick={() => setSelectedColor(i)}
-                                            ></button>
-                                        )
-                                    })}
+                            {colors && (
+                                <div>
+                                    <p className="text-gray-600 mb-2">Color</p>
+            
+                                    <div className="colors mb-8 flex gap-2">
+                                        {colors.map((color, i) => {
+                                            return (
+                                                <button 
+                                                    key={color} 
+                                                    className="w-12 h-12 rounded-4xl hover:outline-blue-800 hover:outline-3" 
+                                                    style={{
+                                                        backgroundColor: color,
+                                                        border: `1px solid ${color}`,
+                                                        outline: selectedColor == i ? "4px solid gray" : ""
+                                                    }} 
+                                                    onClick={() => setSelectedColor(i)}
+                                                ></button>
+                                            )
+                                        })}
+                                    </div>
                                 </div>
-                            </div>
+                            )}
                             {/* Sizes */}
                             <div className="mb-4">
                                 <p className="text-gray-600 mb-2">Sizes</p>
