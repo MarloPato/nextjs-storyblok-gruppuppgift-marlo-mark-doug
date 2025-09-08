@@ -27,19 +27,17 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  // const config = await fetchConfig();
+  const config = await fetchConfig();
 
   return (
     <StoryBlokProvider>
       <CartProvider>
         <ShoplistContextProvider>
           <html lang="en">
-            <body
-              className={`antialiased`}
-            >
-              <Header />
+            <body className={`antialiased`}>
+              <Header {...config} />
               {children}
-              <Footer />
+              <Footer {...config} />
             </body>
           </html>
         </ShoplistContextProvider>
