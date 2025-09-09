@@ -21,14 +21,14 @@ export default async function ShoplistPage({ params }) {
 export async function fetchData() {
   const storyblokApi = getStoryblokApi();
   return await storyblokApi.get("cdn/stories/product", {
-    version: "published",
+    version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION || "published",
   });
 }
 
 export async function fetchProduct(_uid) {
   const storyblokApi = getStoryblokApi();
   const story = await storyblokApi.get("cdn/stories/shoplist", {
-    version: "published",
+    version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION || "published",
   });
 
   const blocks = story?.data?.story?.content?.body;

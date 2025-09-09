@@ -17,7 +17,7 @@ function Header(props) {
     props.promoMessage || "FREE SHIPPING ON ALL HERMAN MILLER! FEB. 25-28";
   const supportLink = props.supportLink || {
     label: "Support",
-    link: { cached_url: "/support" },
+    link: { cached_url: "/home" },
   };
 
   // Ensure supportLink has the correct structure

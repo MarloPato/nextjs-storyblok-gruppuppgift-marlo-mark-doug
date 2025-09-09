@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+// import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StoryBlokProvider from "@/components/StoryBlokProvider";
 import Header from "@/components/sb/Header";
@@ -11,15 +11,15 @@ import { ShoplistContextProvider } from "../components/sb/shoplist/ShoplistConte
 
 export const dynamic = "force-dynamic";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 export const metadata = {
   title: "Create Next App",
@@ -27,19 +27,17 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  // const config = await fetchConfig();
+  const config = await fetchConfig();
 
   return (
     <StoryBlokProvider>
       <CartProvider>
         <ShoplistContextProvider>
           <html lang="en">
-            <body
-              className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-            >
-              <Header />
+            <body className={`antialiased`}>
+              <Header {...config} />
               {children}
-              <Footer />
+              <Footer {...config} />
             </body>
           </html>
         </ShoplistContextProvider>

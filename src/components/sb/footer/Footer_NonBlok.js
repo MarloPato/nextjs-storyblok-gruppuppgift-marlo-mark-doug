@@ -1,42 +1,45 @@
-
 import { getStoryblokApi } from "@storyblok/react";
 
 async function getFooter() {
-  const api = getStoryblokApi()
-  const data = await api.get('cdn/stories', {
-    version: 'draft'
-  })
-  const footerData = data.data.stories.find(story => story.name === "Footer")
-  const { newsLetterTitle, cta_text, newsletterDescription, footer_links_block } = footerData.content.Content[0]
-    return {
-        newsLetterTitle,
-        newsletterDescription,
-        cta_text,
-        shopLinks: footer_links_block.find(lb => lb.component === 'shop_links').shop_links,
-        helpLinks: footer_links_block.find(lb => lb.component === 'help_link').help_links,
-        aboutLinks: footer_links_block.find(lb => lb.component === 'about_link').about_links
-    }
+  const api = getStoryblokApi();
+  const data = await api.get("cdn/stories", {
+    version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION || "published",
+  });
+  const footerData = data.data.stories.find((story) => story.name === "Footer");
+  const {
+    newsLetterTitle,
+    cta_text,
+    newsletterDescription,
+    footer_links_block,
+  } = footerData.content.Content[0];
+  return {
+    newsLetterTitle,
+    newsletterDescription,
+    cta_text,
+    shopLinks: footer_links_block.find((lb) => lb.component === "shop_links")
+      .shop_links,
+    helpLinks: footer_links_block.find((lb) => lb.component === "help_link")
+      .help_links,
+    aboutLinks: footer_links_block.find((lb) => lb.component === "about_link")
+      .about_links,
+  };
 }
 
 export default async function Footer_NonBlok({ blok }) {
-
-    const {
-        newsLetterTitle,
-        newsletterDescription,
-        cta_text,
-        shopLinks,
-        helpLinks,
-        aboutLinks
-    } = await getFooter()
-
+  const {
+    newsLetterTitle,
+    newsletterDescription,
+    cta_text,
+    shopLinks,
+    helpLinks,
+    aboutLinks,
+  } = await getFooter();
 
   return (
-    <footer
-      className="bg-gray-100 py-12 mt-24 w-full flex justify-center items-center"
-    >
+    <footer className="bg-gray-100 py-12 mt-24 w-full flex justify-center items-center">
       <div className="w-full flex max-md:flex-col justify-around mx-auto px-4 sm:px-6 lg:px-8">
         {/* Newsletter Signup Column */}
-        <div className="lg:col-span-1">
+        <div className="lg:col-span-1 pr-8">
           {newsLetterTitle && (
             <h3 className="text-4xl font-medium text-gray-900 mb-4">
               {newsLetterTitle}

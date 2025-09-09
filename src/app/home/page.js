@@ -16,6 +16,6 @@ export default async function Home() {
 export async function fetchData() {
   const storyblokApi = getStoryblokApi();
   return await storyblokApi.get("cdn/stories/home", {
-    version: "published",
+    version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION || "published",
   });
 }
