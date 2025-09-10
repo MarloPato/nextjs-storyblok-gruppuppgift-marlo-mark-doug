@@ -16,6 +16,8 @@ import Paragraph from "@/components/sb/Paragraph.js";
 import Header from "@/components/sb/Header.js";
 import Footer from "@/components/sb/footer/Footer.js";
 
+import Mark from "@/components/sb/Mark.js";
+
 // Shoplist page
 import ShoplistIntro from "../components/sb/shoplist/ShoplistIntro.jsx";
 import ShoplistCategoryTabs from "../components/sb/shoplist/ShoplistCategoryTabs.jsx";
@@ -38,6 +40,9 @@ export const components = {
   image: Image,
   image_banner: ImageBanner,
   hero3: Hero3,
+
+  //mark page
+  mark: Mark,
 
   // Header and Footer
   header: Header,
