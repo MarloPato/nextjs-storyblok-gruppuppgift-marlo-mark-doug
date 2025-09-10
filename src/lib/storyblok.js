@@ -93,17 +93,17 @@ export async function fetchConfig() {
     // Return fallback data if config story doesn't exist yet
     if (error.status === 404) {
       console.log("Config story not found - using fallback data");
-      return {
-        menu_links: [
-          { label: "Home", link: { cached_url: "/" } },
-          { label: "About", link: { cached_url: "/about" } },
-        ],
-        footer_text: "© 2024 Your Company. All rights reserved.",
-        footer_links: [
-          { label: "Privacy Policy", link: { cached_url: "/privacy" } },
-          { label: "Terms of Service", link: { cached_url: "/terms" } },
-        ],
-      };
+      // return {
+      //   menu_links: [
+      //     { label: "Home", link: { cached_url: "/" } },
+      //     { label: "About", link: { cached_url: "/about" } },
+      //   ],
+      //   footer_text: "© 2024 Your Company. All rights reserved.",
+      //   footer_links: [
+      //     { label: "Privacy Policy", link: { cached_url: "/privacy" } },
+      //     { label: "Terms of Service", link: { cached_url: "/terms" } },
+      //   ],
+      // };
     }
 
     return null;

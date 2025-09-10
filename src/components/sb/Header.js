@@ -1,32 +1,15 @@
 import Link from "next/link.js";
 import CartIcon from "./CartIcon.js";
 
-function Header(props) {
-  const menuLinks = props.menuLinks || [
-    { label: "Products", link: { cached_url: "/shoplist" } },
-    { label: "About", link: { cached_url: "/about" } },
-  ];
+export default function Header(props) {
+  const menuLinks = props.menuLinks;
+  const promoMessage = props.promoMessage;
+  const supportLink = props.supportLink;
+  const logoText = props.logoText;
+  const currency = props.currency;
+  const subLinks = props.sub_links;
 
-  // Ensure menuLinks have the correct structure
-  const safeMenuLinks = menuLinks.map((item) => ({
-    label: item.label || "Link",
-    link: item.link || { cached_url: "#" },
-  }));
-  const currency = props.currency || "USD";
-  const promoMessage =
-    props.promoMessage || "FREE SHIPPING ON ALL HERMAN MILLER! FEB. 25-28";
-  const supportLink = props.supportLink || {
-    label: "Support",
-    link: { cached_url: "/home" },
-  };
-
-  // Ensure supportLink has the correct structure
-  const safeSupportLink = {
-    label: supportLink.label || "Support",
-    link: supportLink.link || { cached_url: "/support" },
-  };
-  const cartCount = props.cartCount || 3;
-  const logoText = props.logoText || "Ecommerce";
+  console.log(subLinks);
 
   return (
     <header className="w-full">
@@ -36,22 +19,26 @@ function Header(props) {
           <div className="flex justify-between items-center text-sm">
             {/* Currency selector */}
             <div className="flex items-center">
-              <span className="font-medium">{currency}</span>
+              {currency && <span className="font-medium">{currency}</span>}
             </div>
 
             {/* Promotional message */}
             <div className="flex-1 text-center">
-              <span className="font-medium">{promoMessage}</span>
+              {promoMessage && (
+                <span className="font-medium">{promoMessage}</span>
+              )}
             </div>
 
             {/* Support link */}
             <div className="flex items-center">
-              <Link
-                href={safeSupportLink.link.cached_url}
-                className="hover:text-gray-300 transition-colors"
-              >
-                {safeSupportLink.label}
-              </Link>
+              {supportLink && (
+                <Link
+                  href={supportLink.link?.cached_url}
+                  className="hover:text-gray-300 transition-colors"
+                >
+                  {supportLink.label}
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -72,15 +59,31 @@ function Header(props) {
 
               {/* Navigation Links */}
               <nav className="hidden md:flex space-x-6">
-                {safeMenuLinks.map((item, i) => (
-                  <Link
-                    key={i}
-                    href={item.link.cached_url}
-                    className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+                {menuLinks &&
+                  menuLinks.map((item, i) => (
+                    <div key={i} className="relative group">
+                      <Link
+                        href={item.link?.cached_url}
+                        className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                      {/* Sublinks dropdown */}
+                      {item.sub_links && item.sub_links.length > 0 && (
+                        <div className="absolute left-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded z-10">
+                          {item.sub_links.map((sub, j) => (
+                            <Link
+                              key={j}
+                              href={sub.sub_link_link?.cached_url}
+                              className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                            >
+                              {sub.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
               </nav>
             </div>
 
@@ -119,5 +122,3 @@ function Header(props) {
     </header>
   );
 }
-
-export default Header;
