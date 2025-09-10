@@ -16,6 +16,8 @@ import Paragraph from "@/components/sb/Paragraph.js";
 import Header from "@/components/sb/Header.js";
 import Footer from "@/components/sb/footer/Footer.js";
 
+import Mark from "@/components/sb/Mark.js";
+
 // Shoplist page
 import ShoplistIntro from "../components/sb/shoplist/ShoplistIntro.jsx";
 import ShoplistCategoryTabs from "../components/sb/shoplist/ShoplistCategoryTabs.jsx";
@@ -38,6 +40,9 @@ export const components = {
   image: Image,
   image_banner: ImageBanner,
   hero3: Hero3,
+
+  //mark page
+  mark: Mark,
 
   // Header and Footer
   header: Header,
@@ -88,17 +93,17 @@ export async function fetchConfig() {
     // Return fallback data if config story doesn't exist yet
     if (error.status === 404) {
       console.log("Config story not found - using fallback data");
-      return {
-        menu_links: [
-          { label: "Home", link: { cached_url: "/" } },
-          { label: "About", link: { cached_url: "/about" } },
-        ],
-        footer_text: "© 2024 Your Company. All rights reserved.",
-        footer_links: [
-          { label: "Privacy Policy", link: { cached_url: "/privacy" } },
-          { label: "Terms of Service", link: { cached_url: "/terms" } },
-        ],
-      };
+      // return {
+      //   menu_links: [
+      //     { label: "Home", link: { cached_url: "/" } },
+      //     { label: "About", link: { cached_url: "/about" } },
+      //   ],
+      //   footer_text: "© 2024 Your Company. All rights reserved.",
+      //   footer_links: [
+      //     { label: "Privacy Policy", link: { cached_url: "/privacy" } },
+      //     { label: "Terms of Service", link: { cached_url: "/terms" } },
+      //   ],
+      // };
     }
 
     return null;

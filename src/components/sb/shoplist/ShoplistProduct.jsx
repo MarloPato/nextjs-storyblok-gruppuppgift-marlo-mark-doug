@@ -10,7 +10,7 @@ function ShoplistProduct({ product }) {
         <h3 className="text-xl font-bold">{product.title}</h3>
         <p>{product.gender_age}</p>
       </div>
-      <p>{product.price}:-</p>
+      <p>{product.price} kr</p>
     </a>
   );
 }
