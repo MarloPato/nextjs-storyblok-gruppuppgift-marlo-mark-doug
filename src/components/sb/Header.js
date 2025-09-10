@@ -2,19 +2,23 @@ import Link from "next/link.js";
 import CartIcon from "./CartIcon.js";
 
 function Header(props) {
-  const menuLinks = props.menuLinks || [
-    { label: "Products", link: { cached_url: "/shoplist" } },
-    { label: "About", link: { cached_url: "/about" } },
-  ];
+  // Use the correct field names from Storyblok
+  const menuLinks = props.menu_links ||
+    props.menuLinks || [
+      { label: "Products", link: { cached_url: "/shoplist" } },
+      { label: "About", link: { cached_url: "/about" } },
+    ];
 
   // Ensure menuLinks have the correct structure
   const safeMenuLinks = menuLinks.map((item) => ({
     label: item.label || "Link",
-    link: item.link || { cached_url: "#" },
+    link: item.category_link || item.link || { cached_url: "#" },
   }));
-  const currency = props.currency || "USD";
+  const currency = props.Currency || props.currency || "USD";
   const promoMessage =
-    props.promoMessage || "FREE SHIPPING ON ALL HERMAN MILLER! FEB. 25-28";
+    props.Promo_Message ||
+    props.promoMessage ||
+    "FREE SHIPPING ON ALL HERMAN MILLER! FEB. 25-28";
   const supportLink = props.supportLink || {
     label: "Support",
     link: { cached_url: "/home" },
@@ -26,7 +30,7 @@ function Header(props) {
     link: supportLink.link || { cached_url: "/support" },
   };
   const cartCount = props.cartCount || 3;
-  const logoText = props.logoText || "Ecommerce";
+  const logoText = props.Logo_Text || props.logoText || "Ecommerce";
 
   return (
     <header className="w-full">

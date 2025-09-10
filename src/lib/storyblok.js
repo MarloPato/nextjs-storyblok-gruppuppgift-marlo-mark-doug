@@ -89,15 +89,14 @@ export async function fetchConfig() {
     if (error.status === 404) {
       console.log("Config story not found - using fallback data");
       return {
-        menu_links: [
-          { label: "Home", link: { cached_url: "/" } },
+        // Header data - matching what Header component expects
+        menuLinks: [
+          { label: "Products", link: { cached_url: "/shoplist" } },
           { label: "About", link: { cached_url: "/about" } },
         ],
-        footer_text: "© 2024 Your Company. All rights reserved.",
-        footer_links: [
-          { label: "Privacy Policy", link: { cached_url: "/privacy" } },
-          { label: "Terms of Service", link: { cached_url: "/terms" } },
-        ],
+        currency: "USD",
+        promoMessage: "FREE SHIPPING ON ALL HERMAN MILLER! FEB. 25-28",
+        logoText: "Ecommerce",
       };
     }
 
