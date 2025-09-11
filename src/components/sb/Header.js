@@ -1,15 +1,13 @@
 import Link from "next/link.js";
 import CartIcon from "./CartIcon.js";
 
-export default function Header(props) {
-  const menuLinks = props.menuLinks;
-  const promoMessage = props.promoMessage;
-  const supportLink = props.supportLink;
-  const logoText = props.logoText;
-  const currency = props.currency;
-  const subLinks = props.sub_links;
-
-  console.log(subLinks);
+export default function Header({ 
+  menuLinks, 
+  logoText, 
+  currency, 
+  supportLink,
+  promoMessage
+}) {
 
   return (
     <header className="w-full">
@@ -63,25 +61,11 @@ export default function Header(props) {
                   menuLinks.map((item, i) => (
                     <div key={i} className="relative group">
                       <Link
-                        href={item.link?.cached_url}
+                        href={"/" + item.category_link?.cached_url || ""}
                         className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
                       >
                         {item.label}
                       </Link>
-                      {/* Sublinks dropdown */}
-                      {item.sub_links && item.sub_links.length > 0 && (
-                        <div className="absolute left-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded z-10">
-                          {item.sub_links.map((sub, j) => (
-                            <Link
-                              key={j}
-                              href={sub.sub_link_link?.cached_url}
-                              className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                            >
-                              {sub.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
                     </div>
                   ))}
               </nav>

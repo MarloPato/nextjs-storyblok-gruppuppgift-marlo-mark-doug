@@ -1,7 +1,6 @@
 import { storyblokEditable } from "@storyblok/react";
 
 export default function ImageBanner({ blok }) {
-  console.log("file: ", blok.image_banner?.filename);
   return (
     <div
       {...storyblokEditable(blok)}

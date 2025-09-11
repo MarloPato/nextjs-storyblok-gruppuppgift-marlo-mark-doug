@@ -2,7 +2,6 @@ import { storyblokEditable } from "@storyblok/react";
 
 export default function Hero({ blok }) {
   let heroClasses = `min-h-screen bg-gray-100/90 flex flex-col justify-center items-center gap-10 `;
-  console.log("LINK?", blok.cta_link.cached_url);
 
   return (
     <div

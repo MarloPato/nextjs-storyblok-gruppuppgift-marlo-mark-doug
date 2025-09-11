@@ -17,8 +17,6 @@ async function fetchProducts() {
 const products = await fetchProducts();
 
 export default function sitemap() {
-  console.log(products.length);
-
   return [
     {
       url: `${SETTINGS.SITE_URL}`,

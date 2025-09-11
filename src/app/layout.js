@@ -2,7 +2,7 @@
 import "./globals.css";
 import StoryBlokProvider from "@/components/StoryBlokProvider";
 import Header from "@/components/sb/Header";
-import Footer from "@/components/sb/footer/Footer_NonBlok.js";
+import Footer from "@/components/sb/footer/Footer";
 import { fetchConfig } from "@/lib/storyblok";
 import { CartProvider } from "../components/CartContext.jsx";
 
