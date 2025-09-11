@@ -1,12 +1,16 @@
 
-export default function Footer({
-  helpLinks,
-  aboutLinks,
-  shopLinks,
-  newsLetterTitle,
-  newsLetterDescription,
-  cta_text
-}) {
+export default function Footer(props) {
+
+  const {
+    helpLinks,
+    aboutLinks,
+    shopLinks,
+    newsLetterTitle,
+    newsLetterDescription,
+    cta_text
+  } = props
+
+  console.log("footer props:", props)
 
   return (
     <footer
@@ -41,8 +45,8 @@ export default function Footer({
         <div className="max-md:mt-10">
           <h4 className="text-lg font-bold text-gray-900 mb-4">Shop</h4>
           <ul className="space-y-2">
-            {shopLinks.length > 0 ? (
-              shopLinks.map((link, index) => (
+            {shopLinks[0].shop_links.length > 0 ? (
+              shopLinks[0].shop_links.map((link, index) => (
                 <li key={link._uid || index}>
                   <a
                     href={link.link?.cached_url || "#"}
@@ -62,8 +66,8 @@ export default function Footer({
         <div className="max-md:mt-10">
           <h4 className="text-lg font-bold text-gray-900 mb-4">Help</h4>
           <ul className="space-y-2">
-            {helpLinks.length > 0 ? (
-              helpLinks.map((link, index) => (
+            {helpLinks[0].help_links.length > 0 ? (
+              helpLinks[0].help_links.map((link, index) => (
                 <li key={link._uid || index}>
                   <a
                     href={link.link?.cached_url || "#"}
@@ -83,8 +87,8 @@ export default function Footer({
         <div className="max-md:mt-10">
           <h4 className="text-lg font-bold text-gray-900 mb-4">About</h4>
           <ul className="space-y-2">
-            {aboutLinks.length > 0 ? (
-              aboutLinks.map((link, index) => (
+            {aboutLinks[0].about_links.length > 0 ? (
+              aboutLinks[0].about_links.map((link, index) => (
                 <li key={link._uid || index}>
                   <a
                     href={link.link?.cached_url || "#"}
